@@ -25,9 +25,13 @@ public class ClientController {
 		
 		List<Client> clients=serviceClient.listClients();     
 		
-		return new ModelAndView("displayClients","clients",clients);   // "clients"= clï¿½  , clients= valeur
+		return new ModelAndView("displayClients","clients",clients);   // "clients"= clé, clients= valeur
 		
 	}
+	
+	
+	
+	
 	
 	
 }

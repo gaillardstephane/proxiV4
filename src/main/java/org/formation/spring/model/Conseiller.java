@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.springframework.stereotype.Component;
@@ -21,21 +22,30 @@ public class Conseiller {
 	private int idConseiller;
 	private String nomConseiller;
 	private String prenom;
+	private String login;
 	
 	@OneToMany(mappedBy="conseiller", cascade= {CascadeType.PERSIST})
 	private Collection<Client> listClient= new ArrayList<>();
 
+	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
+	private Gerant gerant;
+	
+	
 	public Conseiller() {
 		super();
 	}
 
-	public Conseiller(int idConseiller, String nomConseiller, String prenom, Collection<Client> listClient) {
+	
+
+	public Conseiller(int idConseiller, String nomConseiller, String prenom, String login) {
 		super();
 		this.idConseiller = idConseiller;
 		this.nomConseiller = nomConseiller;
 		this.prenom = prenom;
-		this.listClient = listClient;
+		this.login = login;
 	}
+
+
 
 	public Conseiller(int idConseiller, String nomConseiller, String prenom) {
 		super();
@@ -43,6 +53,26 @@ public class Conseiller {
 		this.nomConseiller = nomConseiller;
 		this.prenom = prenom;
 	}
+
+
+
+	/**
+	 * @return the login
+	 */
+	public String getLogin() {
+		return login;
+	}
+
+
+
+	/**
+	 * @param login the login to set
+	 */
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+
 
 	/**
 	 * @return the idConseiller
