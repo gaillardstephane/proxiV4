@@ -4,7 +4,6 @@ import org.formation.spring.config.ApplicationConfig;
 import org.formation.spring.dao.IDaoClient;
 import org.formation.spring.model.Adresse;
 import org.formation.spring.model.Client;
-import org.formation.spring.model.Client2;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
